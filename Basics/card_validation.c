@@ -33,3 +33,71 @@
 //     Now let’s add that sum (13) to the sum of the digits that weren’t multiplied by 2 (starting from the end):
 //     13 + 4 + 0 + 0 + 0 + 0 + 0 + 3 + 0 = 20
 //     Yup, the last digit in that sum (20) is a 0, so David’s card is legit!
+
+
+#include <stdio.h>
+
+int get_sum(long int x);
+
+int main(void)
+{
+    // Taking input of card numeber
+    long int card_no;
+    printf("Enter your card number: \n");
+    scanf("%ld", &card_no);
+
+    // Thought process: 
+    // So basically first of all i want to get hold of all the digits of the number 
+    // Then hand pick the digits
+        // First i am gonna get alternate numbers starting from second to last digit
+        // Then i am gonna multiply each by 2 
+        // Get the sum of there digits as shown in the example and store in sum1
+        
+        // Secondly we are gonna get the left over digits that we didn't multiply by 2 
+        // Get there sum store in sum2
+
+    // add sum1 and sum2 to check legitimacy
+
+}
+
+
+int get_sum(long int x)
+{
+    int sum1 = 0; // sum of leftovers
+    int sum2 = 0;
+
+    int mod_alt_digit = 0;
+
+    // Extracting digits 
+    while(x != 0)
+    {
+        sum1 += x%10;
+        x = x/10;
+        printf("%ld\n", x);
+
+        mod_alt_digit = (x%10)*2;
+        if (mod_alt_digit > 9){
+            // Then break it into digits and then add to sum2
+            // Since it'll always be a 2 digit number
+            sum2 += (mod_alt_digit%10) + (mod_alt_digit/10);
+        }
+        else {
+            sum2 += mod_alt_digit;
+        }
+        x = x/10;
+        printf("%ld\n", x);
+
+    }
+
+    int result = sum1+sum2;
+
+    printf("resultant sum : %d\n", result);
+
+    if (result%10 == 0)
+    {
+        return 1;;
+    }
+    else {
+        return 0;;
+    }
+}
