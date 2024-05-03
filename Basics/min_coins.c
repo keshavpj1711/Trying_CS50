@@ -20,6 +20,11 @@ int main(void)
     int penny = 0, nickel = 0, dime = 0, quarter = 0;
 
     printf("Starting while loop\n");
+
+    // What this does is it checks for the largest coin first and so on 
+    // if the largest coin is subtracting with a postive result then we proceed
+    // the if and else if provide the structure which is actually required
+    // I also added the fucntionality to output the number of each coin required
     while (change != 0) {
         if (change-25 >= 0) {
             change -= 25;
