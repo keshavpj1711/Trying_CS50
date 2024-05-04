@@ -36,6 +36,7 @@
 
 
 #include <stdio.h>
+#include <math.h>
 
 int get_sum(long int x);
 int get_digits(long int a);
@@ -65,16 +66,29 @@ int main(void)
     // it should be between 15(for American Express) and 16 digit length
     // For checking we also need to get the number of digits
     if (get_digits(card_no) < 15 || get_digits(card_no) > 16) {
-        printf("INVALID");
+        printf("INVALID\n");
     }
     else {
         // Now checking validity
         if (get_sum(card_no) == 0) {
-            printf("INVALID");
+            printf("INVALID\n");
         }
         else {
             // Checking for the type of card
+            int card_type = get_card_type(card_no);
 
+            if (card_type == 1){
+                printf("American Express\n");
+            }
+            else if (card_type == 2) {
+                printf("Master\n");
+            }
+            else if (card_type == 3){
+                printf("Visa\n");
+            }
+            else {
+                printf("Unknown provider\n");
+            }
         }
     }
 
@@ -93,7 +107,7 @@ int get_sum(long int x)
     {
         sum1 += x%10;
         x = x/10;
-        printf("%ld\n", x);
+        // printf("%ld\n", x);
 
         mod_alt_digit = (x%10)*2;
         if (mod_alt_digit > 9){
@@ -105,13 +119,13 @@ int get_sum(long int x)
             sum2 += mod_alt_digit;
         }
         x = x/10;
-        printf("%ld\n", x);
+        // printf("%ld\n", x);
 
     }
 
     int result = sum1+sum2;
 
-    printf("resultant sum : %d\n", result);
+    // printf("resultant sum : %d\n", result);
 
     if (result%10 == 0)
     {
@@ -132,4 +146,40 @@ int get_digits(long int a)
         count++;
     }
     return count;
+}
+
+
+// Gets you the card type
+int get_card_type(long int y)
+{
+    int digits = get_digits(y);
+    long int num = 0;
+
+    // Setting num to first two digits
+    num = y / pow(10, digits-2);
+
+    if (digits == 15){
+        // printf("Num: %ld\n", num);
+        if (num == 35 || num == 37) {
+            return 1; // For American Express
+        }
+        else{
+            return 0;
+        }
+    }
+    else {
+        if (num == 51 || num == 52 || num == 53 || num == 54 || num == 55) {
+            return 2; // For Mastercard 
+        }
+
+        // Setting num to first digit
+        num = y / pow(10, digits-1);
+        // printf("Num: %ld\n", num);
+        if (num == 4) {
+            return 3; // For Visa
+        }
+        else {
+            return 0;
+        }
+    }
 }
