@@ -108,24 +108,27 @@ int get_sum(long int x)
     int mod_alt_digit = 0;
 
     // Extracting digits 
+    // And as we are extracting digits we add them accordingly to the two variables 
+    // sum1 and sum2, the logic for this is mentioned in the question
     while(x != 0)
     {
         sum1 += x%10;
         x = x/10;
         // printf("%ld\n", x);
 
+        // This is basically the modified digits or say digits after multiplying with two
         mod_alt_digit = (x%10)*2;
+
         if (mod_alt_digit > 9){
-            // Then break it into digits and then add to sum2
-            // Since it'll always be a 2 digit number
+            // If > 9 break it into digits and then add to sum2
             sum2 += (mod_alt_digit%10) + (mod_alt_digit/10);
         }
         else {
             sum2 += mod_alt_digit;
         }
+
         x = x/10;
         // printf("%ld\n", x);
-
     }
 
     int result = sum1+sum2;
@@ -145,6 +148,9 @@ int get_sum(long int x)
 int get_digits(long int a)
 {
     int count = 0;
+
+    // Divides the number and takes the benefit of truncation during int division
+    // Continues till the number after division gets to 0._ which truncates to 0   
     while (a != 0)
     {
         a = a/10;
@@ -157,7 +163,10 @@ int get_digits(long int a)
 // Gets you the card type
 int get_card_type(long int y)
 {
+    // The number of digits present in the number 
     int digits = get_digits(y);
+
+    // This variable was created to get hold of required digits
     long int num = 0;
 
     // Setting num to first two digits
@@ -181,6 +190,7 @@ int get_card_type(long int y)
         // Setting num to first digit
         num = y / pow(10, digits-1);
         // printf("Num: %ld\n", num);
+
         if (num == 4) {
             return 3; // For Visa
         }
