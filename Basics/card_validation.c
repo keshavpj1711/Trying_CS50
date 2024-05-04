@@ -38,6 +38,8 @@
 #include <stdio.h>
 
 int get_sum(long int x);
+int get_digits(long int a);
+int get_card_type(long int y);
 
 int main(void)
 {
@@ -58,9 +60,27 @@ int main(void)
 
     // add sum1 and sum2 to check legitimacy
 
+    // As i am done with checking actual validity there are some other parameters too 
+    // like length of the card number 
+    // it should be between 15(for American Express) and 16 digit length
+    // For checking we also need to get the number of digits
+    if (get_digits(card_no) < 15 || get_digits(card_no) > 16) {
+        printf("INVALID");
+    }
+    else {
+        // Now checking validity
+        if (get_sum(card_no) == 0) {
+            printf("INVALID");
+        }
+        else {
+            // Checking for the type of card
+
+        }
+    }
+
 }
 
-
+// So finally what this function does is check validity of the credit card 
 int get_sum(long int x)
 {
     int sum1 = 0; // sum of leftovers
@@ -100,4 +120,16 @@ int get_sum(long int x)
     else {
         return 0;;
     }
+}
+
+// To count the number of digits
+int get_digits(long int a)
+{
+    int count = 0;
+    while (a != 0)
+    {
+        a = a/10;
+        count++;
+    }
+    return count;
 }
