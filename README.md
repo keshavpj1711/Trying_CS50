@@ -9,3 +9,6 @@
 - Using printf for debugging is ok sometimes but, 
     - main problem with that is we have to compile and run the program again and again to check for errors
     - **Learning the proper use of debugger is very important**.
+- Each string ends in a **/0**, basically this **\0**(also known as NUL) marks the end of a string.
+    - So each and every string is n+1 bytes if you have n characters in the string.
+    - This NUL is different from NULL
