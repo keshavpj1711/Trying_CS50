@@ -66,7 +66,12 @@ int main(void)
     // it should be between 15(for American Express) and 16 digit length
     // For checking we also need to get the number of digits
     if (get_digits(card_no) < 15 || get_digits(card_no) > 16) {
-        printf("INVALID\n");
+        if (get_sum(card_no) == 1) {
+            printf("The number satisfies Luhn's Algo but may not be a card number\n");
+        }
+        else {
+            printf("INVALID\n");
+        }
     }
     else {
         // Now checking validity
@@ -158,6 +163,7 @@ int get_card_type(long int y)
     // Setting num to first two digits
     num = y / pow(10, digits-2);
 
+    // Checks according to the number of digits
     if (digits == 15){
         // printf("Num: %ld\n", num);
         if (num == 35 || num == 37) {
