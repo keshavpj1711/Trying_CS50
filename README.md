@@ -12,6 +12,7 @@
 - Each string ends in a **/0**, basically this **\0**(also known as NUL) marks the end of a string.
     - So each and every string is n+1 bytes if you have n characters in the string.
     - This NUL is different from NULL
+- In C, we must use single quote to represent single characters
 
 ## Realization(Understanding)
 
