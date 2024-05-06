@@ -70,14 +70,22 @@ int main(int argc, string argv[])
         char encrypted_text[input_len+1];
 
         // Working this input out
+        // What i wanted to implement was simple but lengthy
+        // first i check whether the char is upper or lower 
         for (int i = 0; i < input_len; i++) {
+            // If the char is say upper i find the char in the upper_alpha list
             if (isupper(plaintext[i])) {
                 for (int j = 0; j < 26; j++) {
+                    // From this i get the index number of the the char in upper_alpha 
+                    // And add the mapped key output(since we have the index number) to encrypted text
                     if (plaintext[i] == UPPER_ALPHA[j]){
+                        // Remember how i initially checked for char to to be upper or lower
+                        // this helps me to decide whether to add upper char version or the lower char
                         encrypted_text[i] = toupper(argv[1][j]);
                     }
                 }
             }
+            // Similar logic as in uppercase part
             else if (islower(plaintext[i])) {
                 for (int j = 0; j < 26; j++) {
                     if (plaintext[i] == LOWER_ALPHA[j]){
@@ -85,11 +93,14 @@ int main(int argc, string argv[])
                     }
                 }
             }
+            // And if it's not a alphabetic character in plaintext
+            // its added as it is w/o changing
             else {
                 encrypted_text[i] = plaintext[i];
             }
         }
 
+        // To finally print our encipher
         printf("encryptedtext: ");
         for (int i = 0; i < input_len; i++) {
             printf("%c", encrypted_text[i]);
@@ -100,6 +111,7 @@ int main(int argc, string argv[])
 
 }
 
+// Checking if all the chars are alphabets or not
 int is_key_allalpha(char str[], int len)
 {
     // what i want to do is if any of the char is not alpha
@@ -112,6 +124,7 @@ int is_key_allalpha(char str[], int len)
     return 1;
 }
 
+// Checking if the alphabet repeats
 int is_alpha_repeating(char str[], int len)
 {
     for (int i = 0; i < len; i++) {
