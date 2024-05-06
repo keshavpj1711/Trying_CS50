@@ -33,6 +33,10 @@
 int is_key_allalpha(char str[], int len);
 int is_alpha_repeating(char str[], int len);
 
+// Constant 
+const char UPPER_ALPHA[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const char LOWER_ALPHA[] = "abcdefghijklmnopqrstuvwxyz";
+
 int main(int argc, string argv[])
 {
     int len_key = strlen(argv[1]);
@@ -60,7 +64,38 @@ int main(int argc, string argv[])
     }
     else {
         // This is where we will actually proceed
-        
+        // Taking input
+        string plaintext = get_string("plaintext: ");
+        int input_len = strlen(plaintext);
+        char encrypted_text[input_len+1];
+
+        // Working this input out
+        for (int i = 0; i < input_len; i++) {
+            if (isupper(plaintext[i])) {
+                for (int j = 0; j < 26; j++) {
+                    if (plaintext[i] == UPPER_ALPHA[j]){
+                        encrypted_text[i] = toupper(argv[1][j]);
+                    }
+                }
+            }
+            else if (islower(plaintext[i])) {
+                for (int j = 0; j < 26; j++) {
+                    if (plaintext[i] == LOWER_ALPHA[j]){
+                        encrypted_text[i] = tolower(argv[1][j]);
+                    }
+                }
+            }
+            else {
+                encrypted_text[i] = plaintext[i];
+            }
+        }
+
+        printf("encryptedtext: ");
+        for (int i = 0; i < input_len; i++) {
+            printf("%c", encrypted_text[i]);
+        }
+
+            printf("\n");
     }
 
 }
@@ -80,7 +115,7 @@ int is_key_allalpha(char str[], int len)
 int is_alpha_repeating(char str[], int len)
 {
     for (int i = 0; i < len; i++) {
-        for (int j = i; j < len; j++) {
+        for (int j = i+1; j < len; j++) {
             if (toupper(str[i]) == toupper(str[j])) {
                 return 0;
             }
