@@ -63,11 +63,13 @@ int main(int argc, string argv[])
         return 1;
     }
     else {
-        // This is where we will actually proceed
         // Taking input
-        string plaintext = get_string("plaintext: ");
+        // Here get_string comes from cs50 library which was installed 
+        string plaintext = get_string("plaintext: "); 
+
         int input_len = strlen(plaintext);
-        char encrypted_text[input_len+1];
+        
+        char encrypted_text[input_len+1]; //As the last char of this array would be \0 or nul
 
         // Working this input out
         // What i wanted to implement was simple but lengthy
@@ -107,6 +109,8 @@ int main(int argc, string argv[])
         }
 
             printf("\n");
+
+        return 0;
     }
 
 }
@@ -129,6 +133,7 @@ int is_alpha_repeating(char str[], int len)
 {
     for (int i = 0; i < len; i++) {
         for (int j = i+1; j < len; j++) {
+            // Here i changed everything to upper so that we don't consider a and A different
             if (toupper(str[i]) == toupper(str[j])) {
                 return 0;
             }
