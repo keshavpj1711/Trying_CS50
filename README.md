@@ -13,6 +13,20 @@
     - So each and every string is n+1 bytes if you have n characters in the string.
     - This NUL is different from NULL
 - In C, we must use single quote to represent single characters
+- Using command line arguements in C:   
+    ```c
+    #include <stdio.h>
+
+    int main(int argc, char *argv[])
+    {
+        printf("This is the passed arguement: %s", argv[1]);
+    }
+
+    // when running the output you give the cmd line argument like
+    // ./a.out Hello
+    // where argv[0] is program name and,
+    // argv[1] is the passed argument
+    ```
 
 ## Realization(Understanding)
 
