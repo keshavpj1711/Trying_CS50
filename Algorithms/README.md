@@ -21,4 +21,7 @@ Used to find the position of a target value within a sorted array.
 
 - Divide the search space into two halves by finding the middle index “mid”.
 ![](./images/image.png)
-- 
+- Compare with the middle element.
+- if num found return 1
+- if not choose which side to work on left or right and then find its middle element 
+- and repeat the above two steps till you get your element that is to be found
