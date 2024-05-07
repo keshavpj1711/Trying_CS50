@@ -12,3 +12,13 @@ int search(int arr[], int N, int x)
     return 0; // If not than return 0
 }
 ```
+
+## Binary Searching
+
+Used to find the position of a target value within a sorted array.
+
+### Process
+
+- Divide the search space into two halves by finding the middle index “mid”.
+![](./images/image.png)
+- 
