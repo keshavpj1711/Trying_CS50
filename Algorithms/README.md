@@ -61,4 +61,4 @@ So we can say that
 Some algorigthms might have these Big O and Omega notation to be same for example linear counting when we count each and every object one by one.
 It's time complexity would be O(n) and Omega(n), here we have B**ig O and Omega notation to be same and for these we have theta notation.**
 
-Theta notation represents that this algorithm has same Big O and Omega representation.
+**Theta notation** represents that this algorithm has same Big O and Omega representation.
