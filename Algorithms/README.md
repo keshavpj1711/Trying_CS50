@@ -75,3 +75,12 @@ typedef struct{
 
 }struct_name
 ```
+
+# Sorting
+
+## Selection Sort
+
+What this basically does is it selects the smallest element by going thru the array until array reaches to it's end.
+When array comes to an end it swaps the element in the 0th index with the smallest digit.
+Thus placing the smallest digit in start now it starts the loop from 1st index as we have already got our smallest number.
+
