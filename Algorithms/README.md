@@ -84,3 +84,14 @@ What this basically does is it selects the smallest element by going thru the ar
 When array comes to an end it swaps the element in the 0th index with the smallest digit.
 Thus placing the smallest digit in start now it starts the loop from 1st index as we have already got our smallest number.
 
+## Bubble Sort 
+
+Nothing much in this the largest number just bubbles up in the end and this is acheived by comparing with the next number and if the other number is smaller then you swap. 
+This is done n times to get all the n elements sorted.
+So, run time goes to O(n^2).\
+But since if the array is already sorted we say this that swapping zero times this means runtime will be omega(n) since it only has to run n times that is due to the outer loop. 
+
+# In the end
+
+My scribble: (This is basically during i recollect of what i have learnt)
+![algo-lect-part1](./images/The%20understandings-2.jpg)
