@@ -62,3 +62,16 @@ Some algorigthms might have these Big O and Omega notation to be same for exampl
 It's time complexity would be O(n) and Omega(n), here we have B**ig O and Omega notation to be same and for these we have theta notation.**
 
 **Theta notation** represents that this algorithm has same Big O and Omega representation.
+
+# Structs
+
+## Declaring a struct
+
+```c
+typedef struct{
+    // datatype variable_name;
+    int digts;
+    int numbers[n];
+
+}struct_name
+```
