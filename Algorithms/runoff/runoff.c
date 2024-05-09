@@ -147,9 +147,22 @@ void tabulate(void)
     // Here we need to calculate the votes for remaining candidates 
     // We will travel through preferences and update the vote accordingly
 
+    // This loop traverses top to bottom
     for (int i = 0; i < voter_count; i++) {
-        if (candidates[preferences[i][0]].eliminated == false) {
+
+        // This loop traverses left to right and checks for eliminated candidates
+        // If the candidate is eliminated the vote is given to the next person
+        for (int j = 0; j < candidate_count; j++) {
             
+            int candidate_index = preferences[i][j];
+           
+            if (candidates[candidate_index].eliminated == false) {
+                candidates[candidate_index].votes++;
+                break;
+            }
+            else {
+                continue;
+            }
         }
     } 
 
@@ -162,7 +175,7 @@ bool print_winner(void)
     // If someone has more than half of the votes print it's name and return true
     for (int i = 0; i < candidate_count; i++) {
         if (!(candidates[i].eliminated)) {
-            if (candidates[i].votes >   voter_count / 2.0) {
+            if (candidates[i].votes > voter_count / 2.0) {
                 printf("%s", candidates[i].name);
                 return true;
             }
