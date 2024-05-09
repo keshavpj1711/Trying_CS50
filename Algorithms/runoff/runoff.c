@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <strings.h>
 
 // Max voters and candidates
 #define MAX_VOTERS 100
@@ -62,8 +63,9 @@ int main(int argc, string argv[])
     }
 
     // Keep querying for votes
+    // Going thru each voter and asking for ranking preference
     for (int i = 0; i < voter_count; i++)
-    {
+    {   
 
         // Query for each rank
         for (int j = 0; j < candidate_count; j++)
@@ -126,21 +128,42 @@ int main(int argc, string argv[])
 // Record preference if vote is valid
 bool vote(int voter, int rank, string name)
 {
-    // TODO
+    // Basically we just need to register a vote with the rank
+    for (int i = 0; i < candidate_count; i++) {
+        if (strcasecmp(name, candidates[i].name) == 0) {
+            preferences[voter][rank] = i;
+            // basically we are putting the names in ranking 
+            // in preferences[][] as we do in our ballot paper
+            return true;
+        }
+    }
     return false;
 }
 
 // Tabulate votes for non-eliminated candidates
 void tabulate(void)
 {
-    // TODO
+    // Here we need to calculate the votes for remaining candidates 
+    // We will travel through preferences and update the vote accordingly
+
+    for (int i = 0; i < voter_count; i++) {
+        if (candidates[preferences[i][0]].eliminated == false) {
+            
+        }
+    } 
+
     return;
 }
 
 // Print the winner of the election, if there is one
 bool print_winner(void)
 {
-    // TODO
+    // If someone has more than half of the votes print it's name and return true
+    for (int i = 0; i < candidate_count; i++) {
+        if (expression) {
+        
+        }
+    }
     return false;
 }
 
