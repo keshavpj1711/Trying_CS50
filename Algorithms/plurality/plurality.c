@@ -1,3 +1,7 @@
+// This is a basic voting system to know more about it visit:
+// https://cs50.harvard.edu/x/2024/psets/3/plurality/#how-to-test
+
+
 #include <cs50.h>
 #include <stdbool.h>
 #include <stdio.h>      

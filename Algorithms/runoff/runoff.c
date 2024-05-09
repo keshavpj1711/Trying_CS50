@@ -1,3 +1,7 @@
+// To understand the question better visit:
+// https://cs50.harvard.edu/x/2024/psets/3/runoff/#how-to-test
+// Here you will find the explanation of the logic as well as question
+
 #include <cs50.h>
 #include <stdbool.h>
 #include <stdio.h>
