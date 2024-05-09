@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: bubble sort 
 
-How do you know?: TODO
+How do you know?: other two answers are different
 
-sort2 uses: TODO
+sort2 uses: merger sort
 
-How do you know?: TODO
+How do you know?: way faster in random50000
 
-sort3 uses: TODO
+sort3 uses: selection sort 
 
-How do you know?: TODO
+How do you know?: the slowest in random50000
