@@ -1,4 +1,5 @@
 #include <cs50.h>
+#include <stdbool.h>
 #include <stdio.h>
 #include <strings.h>
 
@@ -160,8 +161,11 @@ bool print_winner(void)
 {
     // If someone has more than half of the votes print it's name and return true
     for (int i = 0; i < candidate_count; i++) {
-        if (expression) {
-        
+        if (!(candidates[i].eliminated)) {
+            if (candidates[i].votes >   voter_count / 2.0) {
+                printf("%s", candidates[i].name);
+                return true;
+            }
         }
     }
     return false;
