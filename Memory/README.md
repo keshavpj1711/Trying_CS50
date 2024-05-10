@@ -1,0 +1,52 @@
+# Memory
+
+## Addresses
+
+### What is the address of a variable
+
+Basically each variable we store has some address in the memory and that address can be accessed using:
+Let say we have a variable num so, `&num` will have its address
+
+### How does address of a variable look like?
+
+```c
+#include <stdio.h>
+
+int main(void)
+{
+    int n = 5; 
+
+    // Now what we want to do is look where this variable is actually stored
+    printf("Address of n: %p", &n);
+    
+    // Basically this "%p" is the format specifier for looking at the address of something.
+    // or where is this thing pointing (basically a pointer)
+
+    // For example here the printf returns 
+    // Address of n: 0x7ffd5ec87124
+}
+```
+
+## Pointers
+
+### Declaring pointers 
+
+```c
+    // Syntax for declaring a pointer 
+    int *p = &n; // This * is different from the star used below
+```
+
+### Understanding what actually pointers do 
+
+```c
+printf("p stores address of n: %p\n", p);
+    // Whereas
+    printf("Doing *p points to the value p holds: %d", *p);
+    // The * used is here actually points towards something 
+    // Like here it points to value of p (i.e it points to value of &n)
+    // And &n hold the value i.e. 5
+```
+
+> Just remember the *(asterisk) has different meaning in both the places. If its used during declaration then it's used for **declaring pointer**, and if used anywhere else it's used for basically **pointing to some location**.
+
+
