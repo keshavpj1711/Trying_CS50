@@ -49,4 +49,16 @@ printf("p stores address of n: %p\n", p);
 
 > Just remember the *(asterisk) has different meaning in both the places. If its used during declaration then it's used for **declaring pointer**, and if used anywhere else it's used for basically **pointing to some location**.
 
+### Pointer Arithematic
+
+```c
+char *s = "Hi";
+
+// Printing this 
+printf("%c", *s);
+printf("%c", *(s + 1));
+printf("%c\n", *(s + 2));
+
+// This basically prints: Hi!
+```
 
