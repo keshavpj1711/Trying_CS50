@@ -93,4 +93,14 @@ Now this malloc is basically used to acquire certain amount of memory manually.
 For example we want to store a string "Hi!", it requires 4 blocks of memory and to assign it we do:
 
 ```c
-char *s = malloc()
+// To use malloc you must include stdlib
+char *s = malloc(n*sizeof(char) + 1);
+// This sizeof tells you the size of something as the size of datatypes vary accross different machines.
+```
+
+Also whenever we call malloc we have to free it and if we don't free the allocated memory the situation is called **memmory leak**.
+
+Actually to check such situations we use a tool known as valgrind. 
+This tool is especially used for checking the memory related stuff.
+
+To use valgrind we do: `valgrind ./compiled_output`
