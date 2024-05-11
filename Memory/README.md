@@ -86,3 +86,11 @@ printf("%c\n", s[1]);
 So as we see above copying string is not so simple. One way of copying strings is **declaring a memory chunk** of the req size **using malloc** and then adding each element using a loop.
 
 But a beter way to this is **declaring the mem chunk**(using malloc) and directly **copying using `stcpy`** whose prototype is in string.h.
+
+### Malloc and memory leaks
+
+Now this malloc is basically used to acquire certain amount of memory manually.
+For example we want to store a string "Hi!", it requires 4 blocks of memory and to assign it we do:
+
+```c
+char *s = malloc()
