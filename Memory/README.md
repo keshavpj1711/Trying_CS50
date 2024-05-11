@@ -104,3 +104,23 @@ Actually to check such situations we use a tool known as valgrind.
 This tool is especially used for checking the memory related stuff.
 
 To use valgrind we do: `valgrind ./compiled_output`
+
+### Passing by reference 
+
+Here what's happening is we don't actually pass any values but we pass references and then we can make changes that we want in those values.
+This is helpful when we want to save memory or we want to change something out of scope so we can just have there address and make changes to that.
+
+```c
+void swap(int *a, int *b)
+{
+    int temp = 0;
+
+    // Swapping begins
+    temp = *a; 
+    // storing the value to which a is pointing to another variable
+    *a = *b; 
+    // changing the value in of place where a is pointing to the value where b was pointing
+    *b = temp; 
+    // changing value to which b is pointing to temp var which stores the value where a what pointing
+}
+```
