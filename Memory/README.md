@@ -62,3 +62,27 @@ printf("%c\n", *(s + 2));
 // This basically prints: Hi!
 ```
 
+### Strings and copying them 
+
+```c
+char *s = "hi!";
+// Now let us do 
+char *t = s;
+// Basically what this does is now both s and t are pointing to same thing 
+// And to confirm that, see 
+
+t[0] = toupper(t[0]);
+// Now you might expect it changes something in  t right
+
+// Let's print s 
+printf("%c", s[0]);
+printf("%c\n", s[1]);
+
+// What you observe is that s[0] is uppercase now
+// This proves our above point that s and t points to 
+// first charac of "hi!"
+```
+
+So as we see above copying string is not so simple. One way of copying strings is **declaring a memory chunk** of the req size **using malloc** and then adding each element using a loop.
+
+But a beter way to this is **declaring the mem chunk**(using malloc) and directly **copying using `stcpy`** whose prototype is in string.h.
