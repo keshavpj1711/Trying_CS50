@@ -43,6 +43,19 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             float sepiaGreen = round(.349 * image[i][j].rgbtRed + .686 * image[i][j].rgbtGreen + .168 * image[i][j].rgbtBlue);
             float sepiaBlue = round(.272 * image[i][j].rgbtRed + .534 * image[i][j].rgbtGreen + .131 * image[i][j].rgbtBlue);
 
+            // But there is still one small issue 
+            // This formula may sometimes result in values which are out of 255 range 
+            // so we need to change them to 255, as to keep in range of 8 bit colors
+            if (sepiaRed > 255) {
+                sepiaRed = 255;
+            }
+            if (sepiaBlue > 255) {
+                sepiaBlue = 255;
+            }
+            if (sepiaGreen > 255) {
+                sepiaGreen = 255;
+            }
+
             // Setting sepia colors to image
             image[i][j].rgbtRed = sepiaRed;
             image[i][j].rgbtBlue = sepiaBlue;
@@ -55,6 +68,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+
     return;
 }
 
