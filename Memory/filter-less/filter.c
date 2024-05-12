@@ -1,3 +1,8 @@
+// This file is the main file which takes charge it means that this file is responsible for working of the program
+// Here we first take the arguments check on them
+// Then actually open the file keeping in mind all the error management
+// Then according to the input the specific functions are called from helper.h
+
 #include <getopt.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,6 +13,7 @@ int main(int argc, char *argv[])
 {
     // Define allowable filters
     char *filters = "bgrs";
+    // bgrs - blur, grayscale, reflection, sepia
 
     // Get filter flag and check validity
     char filter = getopt(argc, argv, filters);

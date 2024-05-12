@@ -1,3 +1,5 @@
+// This is where the actual logic of functions is to be written
+
 #include "helpers.h"
 
 // Convert image to grayscale
