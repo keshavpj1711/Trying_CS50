@@ -83,9 +83,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     // Loop over all pixels
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < width; j++)
+        for (int j = 0; j < width/2; j++)
         {
-            swap(&image[i][j], &image[i][width-j-1]);
+            swap(&image[i][j], &image[i][width-1-j]);
         }
     }
     return;
