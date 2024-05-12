@@ -3,6 +3,16 @@
 #include "helpers.h"
 #include <math.h>
 
+// Writing swap function
+void swap(RGBTRIPLE *a, RGBTRIPLE *b)
+{
+    RGBTRIPLE temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -68,7 +78,16 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 // Reflect image horizontally
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Here we just need to swap with the pixels on the other end of the row
 
+    // Loop over all pixels
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            swap(&image[i][j], &image[i][width-j-1]);
+        }
+    }
     return;
 }
 
