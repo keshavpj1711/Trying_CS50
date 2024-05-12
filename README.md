@@ -1,5 +1,10 @@
 # Trying_CS50
 
+## Stuff Pending 
+
+- Tideman in problem sheet 3 Algorithm
+- Restore in problem sheet 4 Memory
+
 ## What are some things I actually learnt that should be kept in mind
 
 ### Code related stuff
