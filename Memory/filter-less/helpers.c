@@ -94,5 +94,22 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+    // Blurring algorithm
+    // To blur an image we need to change the rgb of a pixel to the avg values of the 3x3 pixels around it 
+    // Including the pixel we are blurring to get the better view of this checkout https://cs50.harvard.edu/x/2024/psets/4/filter/less/
+
+    // As we will be changing the image according to the blurring algorithm that is mentioned above
+    // We will have to create a copy of the image 
+
+    // Creating a copy of image
+    RGBTRIPLE copy[height][width];
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            copy[i][j] = image[i][j];
+        }
+    }
+
     return;
 }
