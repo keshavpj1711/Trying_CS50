@@ -13,17 +13,28 @@ def main():
 
     # TODO: Read database file into a variable
     rows = []
+    column_names = []
 
-    with open(f"{sys.argv[1]}") as database:
-        reader = csv.DictReader(database)
+    with open(f"{sys.argv[1]}") as database: # By default it opens it in read mode
+        reader = csv.DictReader(database) # Gets each entry as a dictionary
+        column_names = reader.fieldnames
+
         for row in reader:
             rows.append(row)
     # print(rows)
     
     # TODO: Read DNA sequence file into a variable
-    
+    given_dna_seq = ""
+    with open(f"{sys.argv[2]}") as dna_seq:
+        given_dna_seq = dna_seq.read()
 
     # TODO: Find longest match of each STR in DNA sequence
+    seq_dict = {}
+
+    for i in range(1, len(column_names)):
+        seq_dict[f"{column_names[i]}"] = longest_match(given_dna_seq, column_names[i])
+
+    print(seq_dict)
 
     # TODO: Check database for matching profiles
 
