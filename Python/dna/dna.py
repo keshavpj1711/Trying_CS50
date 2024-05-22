@@ -34,11 +34,27 @@ def main():
     for i in range(1, len(column_names)):
         seq_dict[f"{column_names[i]}"] = longest_match(given_dna_seq, column_names[i])
 
-    print(seq_dict)
+    # print(seq_dict)
 
     # TODO: Check database for matching profiles
+    all_matched_flag = len(column_names) - 1
 
-    return
+    for i in rows:
+        for j in seq_dict:
+            # print(i)
+            # print(j)
+            if seq_dict[j] == int(i[j]):
+                all_matched_flag -= 1
+            else:
+                break
+        if all_matched_flag == 0:
+            print(i["name"])
+            return 0
+        else:
+            all_matched_flag = len(column_names) - 1
+
+    print("No Match")
+    return 1
 
 
 def longest_match(sequence, subsequence):
